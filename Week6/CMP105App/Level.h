@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "Framework/Input.h"
 #include "Player.h"
+#include "Ball.h"
 #include <string.h>
 #include <iostream>
 
@@ -28,4 +29,7 @@ private:
 	// More level variables
 	Player player;
 	sf::Texture playerTex;
+
+	Ball ball;
+	sf::Texture ballTex;
 };

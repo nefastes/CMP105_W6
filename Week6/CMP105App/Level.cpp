@@ -15,6 +15,13 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	player.setPosition(444, 0 + player.getSize().y);
 	player.setVelocity(sf::Vector2f(200.f, 0));
 
+	ballTex.loadFromFile("gfx/Beach_Ball.png");
+	ball.setTexture(&ballTex);
+	ball.setTarget(&player);
+	//setSize() is MANDATORY or it wont display
+	ball.setSize(sf::Vector2f(64.f,64.f));
+	ball.setOrigin(sf::Vector2f(ball.getSize().x / 2, ball.getSize().y / 2));
+	ball.setPosition(1000, 300);
 }
 
 Level::~Level()
@@ -32,12 +39,15 @@ void Level::handleInput(float dt)
 void Level::update(float dt)
 {
 	player.update(dt);
+	ball.setTarget(&player);
+	ball.update(dt);
 }
 
 // Render level
 void Level::render()
 {
 	beginDraw();
+	window->draw(ball);
 	window->draw(player);
 	endDraw();
 }
