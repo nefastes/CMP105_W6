@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Framework/Input.h"
+#include "Player.h"
 #include <string.h>
 #include <iostream>
 
@@ -25,4 +26,6 @@ private:
 	Input* input;
 
 	// More level variables
+	Player player;
+	sf::Texture playerTex;
 };

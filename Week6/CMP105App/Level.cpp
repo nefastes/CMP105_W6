@@ -6,6 +6,14 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	input = in;
 
 	// initialise game objects
+	playerTex.loadFromFile("gfx/Player.png");
+	player.setInput(input);
+	player.setWindow(window);
+	player.setTexture(&playerTex);
+	player.setSize(sf::Vector2f(128, 128));
+	player.setOrigin(sf::Vector2f(player.getSize().x / 2, player.getSize().y / 2));
+	player.setPosition(444, 0 + player.getSize().y);
+	player.setVelocity(sf::Vector2f(200.f, 0));
 
 }
 
@@ -17,20 +25,20 @@ Level::~Level()
 // handle user input
 void Level::handleInput(float dt)
 {
-
+	player.handleInput(dt);
 }
 
 // Update game objects
 void Level::update(float dt)
 {
-
+	player.update(dt);
 }
 
 // Render level
 void Level::render()
 {
 	beginDraw();
-
+	window->draw(player);
 	endDraw();
 }
 
