@@ -32,4 +32,6 @@ private:
 
 	Ball ball;
 	sf::Texture ballTex;
+
+	Ball ball2;
 };

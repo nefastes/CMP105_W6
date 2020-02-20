@@ -19,6 +19,7 @@ Player::Player()
 	//Others
 	isMoving = false;
 	isOnGround = false;
+	window = nullptr;
 }
 
 Player::~Player()

@@ -6,12 +6,15 @@ class Ball : public GameObject
 {
 private:
 	float speed;
-	Player* p;
+	sf::Vector2f target;
+	bool isAccelerating;
+	float acceleration;
 
 public:
 	Ball();
 	~Ball();
 	void update(float dt) override;
-	void setTarget(Player* pete) { p = pete; };
+	void setTarget(sf::Vector2f t) { target = t; };
+	void allowAcceleration(bool b) { isAccelerating = b; };
 };
 
