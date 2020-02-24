@@ -4,6 +4,7 @@
 #include "Framework/Input.h"
 #include "Player.h"
 #include "Ball.h"
+#include "AngryBall.h"
 #include <string.h>
 #include <iostream>
 
@@ -34,4 +35,6 @@ private:
 	sf::Texture ballTex;
 
 	Ball ball2;
+
+	AngryBall angryball;
 };

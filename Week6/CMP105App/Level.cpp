@@ -30,6 +30,14 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	ball2.setOrigin(sf::Vector2f(ball.getSize().x / 2, ball.getSize().y / 2));
 	ball2.setPosition(0, 300);
 	ball2.allowAcceleration(true);
+
+	angryball.setTexture(&ballTex);
+	angryball.setInput(input);
+	angryball.setWindow(window);
+	//setSize() is MANDATORY or it wont display
+	angryball.setSize(sf::Vector2f(64.f, 64.f));
+	angryball.setOrigin(sf::Vector2f(ball.getSize().x / 2, ball.getSize().y / 2));
+	angryball.setPosition(300, 300);
 }
 
 Level::~Level()
@@ -41,6 +49,7 @@ Level::~Level()
 void Level::handleInput(float dt)
 {
 	player.handleInput(dt);
+	angryball.handleInput(dt);
 }
 
 // Update game objects
@@ -51,6 +60,7 @@ void Level::update(float dt)
 	ball2.setTarget(sf::Vector2f(input->getMouseX(), input->getMouseY()));
 	ball.update(dt);
 	ball2.update(dt);
+	angryball.update(dt);
 }
 
 // Render level
@@ -59,6 +69,7 @@ void Level::render()
 	beginDraw();
 	window->draw(ball2);
 	window->draw(ball);
+	window->draw(angryball);
 	window->draw(player);
 	endDraw();
 }
